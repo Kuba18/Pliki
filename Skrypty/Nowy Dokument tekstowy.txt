@@ -1,0 +1,1 @@
+ msgfmt "vim - kopia.mo" -o plik.po

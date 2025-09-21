@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ewolucja Systemów Komputerowych</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+        body {width: 1280px; height: 720px; overflow: hidden; font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            
+        }
+        .hexagon {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        .circuit-line {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.3);
+            height: 2px;
+        }
+        .circuit-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide bg-gradient-to-br from-gray-900 to-blue-900" style="background-color: #1C2331; overflow: hidden;">
+<!-- Abstract background elements -->
+<div class="absolute inset-0 opacity-20">
+<!-- Circuit board pattern -->
+<div class="circuit-line" style="top: 100px; left: 50px; width: 200px;"></div>
+<div class="circuit-line" style="top: 150px; left: 100px; width: 300px;"></div>
+<div class="circuit-line" style="top: 250px; left: 200px; width: 150px;"></div>
+<div class="circuit-line" style="top: 350px; left: 150px; width: 250px;"></div>
+<div class="circuit-line" style="top: 450px; left: 250px; width: 180px;"></div>
+<div class="circuit-line" style="top: 550px; left: 180px; width: 220px;"></div>
+<div class="circuit-line" style="top: 120px; right: 50px; width: 200px;"></div>
+<div class="circuit-line" style="top: 220px; right: 100px; width: 300px;"></div>
+<div class="circuit-line" style="top: 320px; right: 200px; width: 150px;"></div>
+<div class="circuit-line" style="top: 420px; right: 150px; width: 250px;"></div>
+<div class="circuit-line" style="top: 520px; right: 250px; width: 180px;"></div>
+<!-- Circuit dots -->
+<div class="circuit-dot bg-cyan-400" style="top: 100px; left: 50px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 150px; left: 100px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 250px; left: 200px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 350px; left: 150px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 450px; left: 250px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 550px; left: 180px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 120px; right: 50px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 220px; right: 100px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 320px; right: 200px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 420px; right: 150px;"></div>
+<div class="circuit-dot bg-cyan-400" style="top: 520px; right: 250px;"></div>
+</div>
+<!-- Main content container -->
+<div class="absolute inset-0 flex flex-col items-center justify-center px-16">
+<!-- Title area -->
+<div class="text-center mb-10">
+<h1 class="text-5xl font-black text-white mb-4 tracking-wider">EWOLUCJA SYSTEMÓW KOMPUTEROWYCH</h1>
+<div class="w-24 h-1 bg-cyan-400 mx-auto mb-6"></div>
+<h2 class="text-2xl text-cyan-300 font-medium tracking-wide">Zwiększanie Siły Obliczeniowej, Pojemności Pamięci i Przechowywania Danych</h2>
+</div>
+<!-- Visual elements representing computer evolution -->
+<div class="flex justify-center items-center space-x-12 my-12">
+<!-- CPU Evolution -->
+<div class="flex flex-col items-center">
+<div class="hexagon bg-gradient-to-br from-blue-500 to-purple-600 w-24 h-24 flex items-center justify-center">
+<i class="fas fa-microchip text-white text-4xl"></i>
+</div>
+<p class="text-white mt-3 text-lg font-medium">Procesory</p>
+<p class="text-cyan-300 text-sm">Od 2300 do 100M rdzeni</p>
+</div>
+<!-- RAM Evolution -->
+<div class="flex flex-col items-center">
+<div class="hexagon bg-gradient-to-br from-green-500 to-teal-600 w-24 h-24 flex items-center justify-center">
+<i class="fas fa-memory text-white text-4xl"></i>
+</div>
+<p class="text-white mt-3 text-lg font-medium">Pamięć RAM</p>
+<p class="text-teal-300 text-sm">Od KB do TB</p>
+</div>
+<!-- Storage Evolution -->
+<div class="flex flex-col items-center">
+<div class="hexagon bg-gradient-to-br from-orange-500 to-red-600 w-24 h-24 flex items-center justify-center">
+<i class="fas fa-hdd text-white text-4xl"></i>
+</div>
+<p class="text-white mt-3 text-lg font-medium">Pamięć Masowa</p>
+<p class="text-orange-300 text-sm">Od MB do PB</p>
+</div>
+</div>
+<!-- Timeline element -->
+<div class="w-3/4 h-1 bg-gray-700 relative mt-8">
+<div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full"></div>
+<div class="absolute left-1/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full"></div>
+<div class="absolute left-1/2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full"></div>
+<div class="absolute left-3/4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full"></div>
+<div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-cyan-400 rounded-full"></div>
+<div class="absolute left-0 top-full mt-1 text-xs text-gray-400">1970</div>
+<div class="absolute left-1/4 top-full mt-1 text-xs text-gray-400">1990</div>
+<div class="absolute left-1/2 top-full mt-1 text-xs text-gray-400">2000</div>
+<div class="absolute left-3/4 top-full mt-1 text-xs text-gray-400">2010</div>
+<div class="absolute right-0 top-full mt-1 text-xs text-gray-400" style="visibility: hidden;">2025</div>
+</div>
+<!-- Date -->
+<div class="absolute bottom-10 right-10 text-gray-400 text-sm">
+<p>Data: 2025-09-22</p>
+</div>
+</div>
+</div>
+
+</body></html>

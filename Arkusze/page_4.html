@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ewolucja Procesorów (CPU) - Wzrost Mocy Obliczeniowej</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 788px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 788px;
+            background-color: #1C2331;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .footer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .table-header {
+            background-color: rgba(0, 255, 255, 0.2);
+        }
+        .table-row-even {
+            background-color: rgba(0, 255, 255, 0.05);
+        }
+        .table-row-odd {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .axis path, .axis line {
+            stroke: rgba(255, 255, 255, 0.5);
+        }
+        .axis text {
+            fill: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide p-10 flex flex-col" style=" overflow: hidden;">
+<!-- Title Section -->
+<div class="mb-4">
+<h1 class="title">Ewolucja Procesorów (CPU) - Wzrost Mocy Obliczeniowej</h1>
+</div>
+<!-- Introduction -->
+<div class="content mb-4">
+<p>Początki ewolucji procesorów sięgają lat 70. XX wieku, kiedy pojawiły się pierwsze mikroprocesory. Kluczowym momentem było wprowadzenie na rynek w 1971 roku przez firmę Intel układu 4004. Od tego czasu mamy świadectwo wykładniczego wzrostu mocy obliczeniowej, napędzonego głównie przez Prawo Moore&#39;a, które przewidywało podwajanie się liczby tranzystorów w układzie scalonym co około dwa lata.</p>
+</div>
+<div class="flex">
+<!-- Left Column: Image and Moore's Law -->
+<div class="w-1/3 pr-4">
+<div class="mb-4 flex justify-center">
+<img alt="Intel 4004 microprocessor" class="h-44 object-contain rounded-lg border border-cyan-800 bg-gray-800 p-2" src="https://picture-search.skywork.ai/aippt/image/sheet/5c303681e7814d2f6ac9c7f02d8e1e58.jpg" data-sk-source-container="img" data-sk-source-url="https://en.wikipedia.org/wiki/Intel_4004" data-sk-source-id="1969853040688799744"/>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-4 rounded-lg border border-cyan-800">
+<h3 class="subtitle text-cyan-300 mb-2">Prawo Moore&#39;a</h3>
+<p class="content text-sm">Przewidywało podwajanie się liczby tranzystorów w układzie scalonym co około dwa lata. Stało się samospełniającą się przepowiednią i motorem innowacji w branży półprzewodników.</p>
+</div>
+</div>
+<!-- Right Column: CPU Evolution Table -->
+<div class="w-2/3 pl-4">
+<div class="overflow-hidden rounded-lg border border-cyan-800">
+<table class="w-full text-sm">
+<thead>
+<tr class="table-header">
+<th class="py-3 px-4 text-left">Procesor</th>
+<th class="py-3 px-4 text-left">Rok wprowadzenia</th>
+<th class="py-3 px-4 text-left">Częstotliwość taktowania</th>
+<th class="py-3 px-4 text-left">Liczba tranzystorów</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row-odd">
+<td class="py-2 px-4 font-medium">Intel 4004</td>
+<td class="py-2 px-4">1971</td>
+<td class="py-2 px-4">740 kHz</td>
+<td class="py-2 px-4">2 300</td>
+</tr>
+<tr class="table-row-even">
+<td class="py-2 px-4 font-medium">Intel 8086</td>
+<td class="py-2 px-4">1978</td>
+<td class="py-2 px-4">5-10 MHz</td>
+<td class="py-2 px-4">29 000</td>
+</tr>
+<tr class="table-row-odd">
+<td class="py-2 px-4 font-medium">Intel 386</td>
+<td class="py-2 px-4">1985</td>
+<td class="py-2 px-4">16-33 MHz</td>
+<td class="py-2 px-4">275 000</td>
+</tr>
+<tr class="table-row-even">
+<td class="py-2 px-4 font-medium">Intel Pentium</td>
+<td class="py-2 px-4">1993</td>
+<td class="py-2 px-4">60-300 MHz</td>
+<td class="py-2 px-4">3 100 000</td>
+</tr>
+<tr class="table-row-odd">
+<td class="py-2 px-4 font-medium">Intel Pentium 4</td>
+<td class="py-2 px-4">2000</td>
+<td class="py-2 px-4">1.3-3.8 GHz</td>
+<td class="py-2 px-4">42 000 000</td>
+</tr>
+<tr class="table-row-even">
+<td class="py-2 px-4 font-medium">Intel Core i7 (1. gen)</td>
+<td class="py-2 px-4">2008</td>
+<td class="py-2 px-4">2.66-3.2 GHz</td>
+<td class="py-2 px-4">731 000 000</td>
+</tr>
+<tr class="table-row-odd">
+<td class="py-2 px-4 font-medium">Intel Core i9-13900K</td>
+<td class="py-2 px-4">2022</td>
+<td class="py-2 px-4">do 5.8 GHz</td>
+<td class="py-2 px-4">~100 000 000 000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Visualization -->
+<div class="mt-4 h-36 w-full" id="chart"></div>
+<!-- Footer -->
+<div class="mt-auto pt-4 flex justify-between items-center">
+<div class="footer">Ewolucja Systemów Komputerowych</div>
+<div class="footer" style="visibility: hidden;">4/12</div>
+</div>
+</div>
+<script>
+        // Data for the chart
+        const data = [
+            {year: 1971, transistors: 2300, clock: 0.74},
+            {year: 1978, transistors: 29000, clock: 7.5},
+            {year: 1985, transistors: 275000, clock: 20},
+            {year: 1993, transistors: 3100000, clock: 150},
+            {year: 2000, transistors: 42000000, clock: 2500},
+            {year: 2008, transistors: 731000000, clock: 3000},
+            {year: 2022, transistors: 100000000000, clock: 5800}
+        ];
+
+        // Set up the chart dimensions
+        const margin = {top: 20, right: 30, bottom: 30, left: 60};
+        const width = 1200 - margin.left - margin.right;
+        const height = 144 - margin.top - margin.bottom;
+
+        // Create the SVG container
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Set up scales
+        const x = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.year))
+            .range([0, width]);
+
+        const y = d3.scaleLog()
+            .domain([1000, 100000000000])
+            .range([height, 0]);
+
+        // Add the X axis
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x).tickFormat(d => d.toString()).ticks(7));
+
+        // Add the Y axis
+        svg.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(y).tickFormat(d => {
+                if (d >= 1000000000) return (d/1000000000).toFixed(1) + "B";
+                if (d >= 1000000) return (d/1000000).toFixed(0) + "M";
+                if (d >= 1000) return (d/1000).toFixed(0) + "K";
+                return d;
+            }).ticks(5));
+
+        // Add the line
+        svg.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "#00FFFF")
+            .attr("stroke-width", 3)
+            .attr("d", d3.line()
+                .x(d => x(d.year))
+                .y(d => y(d.transistors))
+            );
+
+        // Add dots
+        svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", d => x(d.year))
+            .attr("cy", d => y(d.transistors))
+            .attr("r", 5)
+            .attr("fill", "#32CD32");
+
+        // Add title
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", 0)
+            .attr("text-anchor", "middle")
+            .attr("fill", "white")
+            .attr("font-size", "14px")
+            .text("Wzrost liczby tranzystorów w czasie (logarytmiczna skala)");
+    </script>
+
+</body></html>

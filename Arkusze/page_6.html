@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rewolucja w Pamięci RAM - Skok Pojemnościowy</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 907px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 907px;
+            background-color: #1C2331;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .impact-box {
+            background-color: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+        .footer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .chart-container {
+            height: 250px;
+            width: 100%;
+        }
+        .bar {
+            fill: #00FFFF;
+            transition: all 0.3s ease;
+        }
+        .bar:hover {
+            fill: #32CD32;
+        }
+        .axis text {
+            fill: white;
+            font-size: 12px;
+        }
+        .axis path, .axis line {
+            stroke: rgba(255, 255, 255, 0.3);
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide p-10 flex flex-col" style=" overflow: hidden;">
+<!-- Title Section -->
+<div class="mb-4">
+<h1 class="title">Rewolucja w Pamięci RAM - Skok Pojemnościowy</h1>
+</div>
+<!-- Introduction -->
+<div class="content mb-4">
+<p>Ewolucja pojemności pamięci RAM w komputerach osobistych to historia wykładniczego wzrostu, który fundamentalnie zmienił możliwości oprogramowania i doświadczenia użytkowników. Kazda dekada przyniosała znaczące zwiększenie dostępnej pamięci.</p>
+</div>
+<!-- Chart -->
+<div class="chart-container mb-4" id="ram-growth-chart"></div>
+<!-- Impacts -->
+<div class="grid grid-cols-2 gap-6 mb-4">
+<div class="impact-box p-4">
+<div class="flex items-center mb-2">
+<i class="fas fa-tasks text-cyan-300 text-2xl mr-3"></i>
+<h3 class="subtitle">Lepsza Wielozadaniowość</h3>
+</div>
+<p class="content">Większa ilość RAM pozwala na jednocześnie uruchamianie większej liczby aplikacji bez spowolnienia systemu.</p>
+</div>
+<div class="impact-box p-4">
+<div class="flex items-center mb-2">
+<i class="fas fa-code text-cyan-300 text-2xl mr-3"></i>
+<h3 class="subtitle">Bardziej Złożone Aplikacje</h3>
+</div>
+<p class="content">Większa pamięć umożliwia tworzenie oprogramowania z bogatszymi funkcjami, większymi bazami danych i bardziej zaawansowaną grafiką.</p>
+</div>
+<div class="impact-box p-4">
+<div class="flex items-center mb-2">
+<i class="fas fa-bolt text-cyan-300 text-2xl mr-3"></i>
+<h3 class="subtitle">Szybsze Przetwarzanie Danych</h3>
+</div>
+<p class="content">Większe zestawy danych mogą być ładowane bezpośrednio do pamięci RAM, co znacznie przyspiesza operacje.</p>
+</div>
+<div class="impact-box p-4">
+<div class="flex items-center mb-2">
+<i class="fas fa-gamepad text-cyan-300 text-2xl mr-3"></i>
+<h3 class="subtitle">Poprawa Wydajności Gier</h3>
+</div>
+<p class="content">Gry mogą ładować większe tekstury, modele 3D i światy, co przekłada się na bardziej realistyczne i immersyjne doświadczenia.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-2 flex justify-between items-center">
+<div class="footer">Ewolucja Systemów Komputerowych</div>
+<div class="footer" style="visibility: hidden;">6/12</div>
+</div>
+</div>
+<script>
+        // Data for RAM growth over time (in bytes)
+        const data = [
+            {year: "Lata 80.", value: 64000, label: "64 KB"}, // 640 KB
+            {year: "Lata 90.", value: 67108864, label: "64 MB"}, // 64 MB
+            {year: "Lata 2000.", value: 2684354560, label: "2 GB"}, // 2 GB
+            {year: "Lata 2010.", value: 8589934592, label: "8 GB"}, // 8 GB
+            {year: "Lata 2020.", value: 34359738368, label: "32 GB"} // 32 GB
+        ];
+
+        // Set up the chart dimensions
+        const margin = {top: 20, right: 30, bottom: 40, left: 60};
+        const width = document.querySelector('.chart-container').clientWidth - margin.left - margin.right;
+        const height = document.querySelector('.chart-container').clientHeight - margin.top - margin.bottom;
+
+        // Create the SVG container
+        const svg = d3.select("#ram-growth-chart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Set up scales
+        const x = d3.scaleBand()
+            .domain(data.map(d => d.year))
+            .range([0, width])
+            .padding(0.3);
+
+        const y = d3.scaleLog()
+            .domain([10000, 100000000000000])
+            .range([height, 0]);
+
+        // Add X axis
+        svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x));
+
+        // Add Y axis
+        svg.append("g")
+            .attr("class", "axis")
+            .call(d3.axisLeft(y)
+                .tickValues([10000, 1000000, 1000000000, 1000000000000])
+                .tickFormat(d => {
+                    if (d >= 1000000000) return `${d/1000000000} GB`;
+                    if (d >= 1000000) return `${d/1000000} MB`;
+                    if (d >= 1000) return `${d/1000} KB`;
+                    return d + " B";
+                })
+            );
+
+        // Add title
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", 0)
+            .attr("text-anchor", "middle")
+            .attr("fill", "white")
+            .attr("font-size", "16px")
+            .attr("font-weight", "bold")
+            .text("Wzrost pojemności pamięci RAM");
+
+        // Add bars
+        svg.selectAll(".bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", d => x(d.year))
+            .attr("y", d => y(d.value))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.value))
+            .attr("rx", 4)
+            .attr("ry", 4);
+
+        // Add labels on top of bars
+        svg.selectAll(".label")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .attr("x", d => x(d.year) + x.bandwidth() / 2)
+            .attr("y", d => y(d.value) - 10)
+            .attr("text-anchor", "middle")
+            .attr("fill", "white")
+            .attr("font-size", "12px")
+            .text(d => d.label);
+    </script>
+
+</body></html>

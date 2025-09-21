@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jednostki Zapisu Informacji</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 831px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 831px;
+            background-color: #1C2331;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .info-box {
+            background-color: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+        .table-header {
+            background-color: rgba(0, 255, 255, 0.2);
+            font-weight: bold;
+        }
+        .table-row-even {
+            background-color: rgba(0, 255, 255, 0.05);
+        }
+        .table-row-odd {
+            background-color: rgba(0, 255, 255, 0.1);
+        }
+        .footer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide p-10 flex flex-col" style=" overflow: hidden;">
+<!-- Title Section -->
+<div class="mb-6">
+<h1 class="title">Jednostki Zapisu Informacji</h1>
+</div>
+<!-- Introduction -->
+<div class="content mb-5">
+<p>W świecie cyfrowym, cała informacja jest reprezentowana za pomocą najprostszych elementów – bitów. Bit (binary digit) to podstawowa jednostka informacji, która może przyjąć tylko jedną z dwóch wartości: 0 lub 1. Bity są grupowane w bajty, a następnie w coraz większe jednostki.</p>
+</div>
+<!-- Bits and Bytes Section -->
+<div class="grid grid-cols-2 gap-6 mb-6">
+<div class="info-box p-5">
+<div class="flex items-center mb-3">
+<i class="fas fa-microchip text-3xl text-cyan-300 mr-3"></i>
+<h3 class="subtitle">Bit</h3>
+</div>
+<p class="content">Podstawowa jednostka informacji, która może przyjąć wartość 0 lub 1. Analogicznie do włącznika światła, który jest albo włączony, albo wyłączony.</p>
+</div>
+<div class="info-box p-5">
+<div class="flex items-center mb-3">
+<i class="fas fa-database text-3xl text-cyan-300 mr-3"></i>
+<h3 class="subtitle">Bajt</h3>
+</div>
+<p class="content">Grupa z ośmiu bitów, która może zakodować 256 różnych wartości (2<sup>8</sup>). Zdolna do reprezentowania pojedynczego znaku tekstowego zgodnie z standardami kodowania.</p>
+</div>
+</div>
+<!-- Prefixes Comparison Table -->
+<div class="mb-3">
+<h3 class="subtitle mb-3">Porównanie Przedrostków</h3>
+<div class="overflow-hidden rounded-lg">
+<table class="w-full">
+<thead>
+<tr class="table-header">
+<th class="py-3 px-4 text-left">Przedrostek Dziesiętny (SI)</th>
+<th class="py-3 px-4 text-left">Wartość (Bajtów)</th>
+<th class="py-3 px-4 text-left">Przedrostek Binarny (IEC)</th>
+<th class="py-3 px-4 text-left">Wartość (Bajtów)</th>
+</tr>
+</thead>
+<tbody class="content">
+<tr class="table-row-odd">
+<td class="py-2 px-4">Kilobajt (KB)</td>
+<td class="py-2 px-4">10<sup>3</sup> = 1000</td>
+<td class="py-2 px-4">Kibibajt (KiB)</td>
+<td class="py-2 px-4">2<sup>10</sup> = 1024</td>
+</tr>
+<tr class="table-row-even">
+<td class="py-2 px-4">Megabajt (MB)</td>
+<td class="py-2 px-4">10<sup>6</sup> = 1000000</td>
+<td class="py-2 px-4">Mebibajt (MiB)</td>
+<td class="py-2 px-4">2<sup>20</sup> = 1048576</td>
+</tr>
+<tr class="table-row-odd">
+<td class="py-2 px-4">Gigabajt (GB)</td>
+<td class="py-2 px-4">10<sup>9</sup> = 1000000000</td>
+<td class="py-2 px-4">Gibibajt (GiB)</td>
+<td class="py-2 px-4">2<sup>30</sup> = 1073741824</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Note -->
+<div class="content">
+<p><i class="fas fa-info-circle text-cyan-300 mr-2"></i> Różnica między tymi dwoma systemami staje się coraz bardziej znacząca wraz ze wzrostem pojemności. Zrozumienie tej różnicy jest kluczowe dla prawidłowej interpretacji specyfikacji technicznych.</p>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-4 flex justify-between items-center">
+<div class="footer">Ewolucja Systemów Komputerowych</div>
+<div class="footer" style="visibility: hidden;">3/12</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ewolucja Pamięci Masowej - Od Dysków Magnetycznych do Półprzewodników</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 749px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 749px;
+            background-color: #1C2331;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .comparison-table th {
+            font-size: 18px;
+            font-weight: bold;
+            color: #00FFFF;
+            background-color: rgba(0, 255, 255, 0.1);
+        }
+        .comparison-table td {
+            font-size: 16px;
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .hdd-icon {
+            color: #FFA500;
+        }
+        .ssd-icon {
+            color: #32CD32;
+        }
+        .footer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .device-image {
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide p-8 flex flex-col" style=" overflow: hidden;">
+<!-- Title Section -->
+<div class="mb-4">
+<h1 class="title">Ewolucja Pamięci Masowej - Od Dysków Magnetycznych do Półprzewodników</h1>
+</div>
+<!-- Main Content -->
+<div class="flex flex-1">
+<!-- Left Column - Images -->
+<div class="w-1/3 flex flex-col justify-center items-center space-y-6">
+<div class="flex flex-col items-center">
+<div class="device-image p-2 mb-2">
+<img alt="Dysk twardy (HDD)" class="w-48 h-auto" src="https://picture-search.skywork.ai/aippt/image/sheet/3753eb3d2caa36b9c9c158c0ce1afc79.jpg" data-sk-source-container="img" data-sk-source-url="https://www.dell.com/pl-pl/shop/dyski-twarde-i-pami%C4%99%C4%87-masowa/ar/7730" data-sk-source-id="1969853040697188356"/>
+</div>
+<div class="flex items-center">
+<i class="fas fa-hdd text-2xl hdd-icon mr-2"></i>
+<span class="text-xl font-bold text-orange-300">Dysk Twardy (HDD)</span>
+</div>
+<p class="text-center text-sm mt-1 text-gray-300">Zapis magnetyczny na wirujących talerzach</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="device-image p-2 mb-2">
+<img alt="Dysk półprzewodnikowy (SSD)" class="w-48 h-auto" src="https://picture-search.skywork.ai/aippt/image/sheet/f3407fc7b7ed898dcd1a8c1e6616e70e.jpg" data-sk-source-container="img" data-sk-source-url="https://www.amazon.pl/AGI-wewn%C4%99trzny-radiatorem-pr%C4%99dko%C5%9B%C4%87-komputera/dp/B0BSV1PRNN" data-sk-source-id="1969853040701382657"/>
+</div>
+<div class="flex items-center">
+<i class="fas fa-microchip text-2xl ssd-icon mr-2"></i>
+<span class="text-xl font-bold text-green-300">Dysk Półprzewodnikowy (SSD)</span>
+</div>
+<p class="text-center text-sm mt-1 text-gray-300">Zapis elektroniczny w pamięci flash (NAND)</p>
+</div>
+</div>
+<!-- Right Column - Comparison Table -->
+<div class="w-2/3 pl-6">
+<h2 class="subtitle mb-3">Porównanie HDD i SSD</h2>
+<table class="comparison-table w-full">
+<thead>
+<tr>
+<th class="w-1/4 text-left py-3">Cecha</th>
+<th class="w-1/2 text-left py-3 text-orange-300">Dysk Twardy (HDD)</th>
+<th class="w-1/4 text-left py-3 text-green-300">Dysk Półprzewodnikowy (SSD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="font-medium">Prędkość odczytu/zapisu</td>
+<td>50-200 MB/s (sekwencyjny)</td>
+<td>300-7000 MB/s (sekwencyjny)</td>
+</tr>
+<tr>
+<td class="font-medium">Czas dostępu</td>
+<td>Kilka do kilkunastu milisekund</td>
+<td>Ułamki milisekundy (poniżej 0.1 ms)</td>
+</tr>
+<tr>
+<td class="font-medium">Odporność na uszkodzenia</td>
+<td>Niska (wrażliwy na wstrząsy)</td>
+<td>Wysoka (brak ruchomych części)</td>
+</tr>
+<tr>
+<td class="font-medium">Pobór mocy</td>
+<td>Wyższy (wymaga zasilania silnika)</td>
+<td>Niższy (brak ruchomych części)</td>
+</tr>
+<tr>
+<td class="font-medium">Hałas</td>
+<td>Słyszalny (szum talerzy)</td>
+<td>Brak (cicha praca)</td>
+</tr>
+<tr>
+<td class="font-medium">Wielkość fizyczna</td>
+<td>Standardowo 3.5&#34; i 2.5&#34;</td>
+<td>Standardowo 2.5&#34;, M.2, U.2 (mniejsze)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-4 pt-2 flex justify-between items-center">
+<div class="footer">Ewolucja Systemów Komputerowych</div>
+<div class="footer" style="visibility: hidden;">8/12</div>
+</div>
+</div>
+
+</body></html>

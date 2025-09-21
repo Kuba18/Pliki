@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eksplozja Pojemności Pamięci Masowej</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 801px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 801px;
+            background-color: #1C2331;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .device-card {
+            background-color: rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .device-card:hover {
+            background-color: rgba(0, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        .footer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .chart-container {
+            height: 250px;
+            width: 100%;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide p-10 flex flex-col" style=" overflow: hidden;">
+<!-- Title Section -->
+<div class="mb-6">
+<h1 class="title">Eksplozja Pojemności Pamięci Masowej</h1>
+</div>
+<!-- Introduction -->
+<div class="content mb-4">
+<p>Wzrost pojemności nośników danych jest jednym z najbardziej spektakularnych aspektów ewolucji systemów komputerowych. Przez dekady obserwowaliśmy wykładniczy wzrost ilości danych, które możemy przechowywać na coraz mniejszych urządzeniach.</p>
+</div>
+<!-- Storage Evolution Timeline -->
+<div class="grid grid-cols-4 gap-4 mb-6">
+<!-- Era 1: 1980s -->
+<div class="device-card p-4 flex flex-col items-center text-center">
+<div class="mb-2 text-cyan-300 text-4xl">
+<i class="fas fa-floppy-disk"></i>
+</div>
+<h3 class="subtitle mb-1">Lata 80.</h3>
+<p class="content">Dyskietka 3.5 cala</p>
+<p class="text-cyan-300 font-bold">1.44 MB</p>
+</div>
+<!-- Era 2: 1990s -->
+<div class="device-card p-4 flex flex-col items-center text-center">
+<div class="mb-2 text-cyan-300 text-4xl">
+<i class="fas fa-hdd"></i>
+</div>
+<h3 class="subtitle mb-1">Lata 90.</h3>
+<p class="content">Pierwsze dyski twarde</p>
+<p class="text-cyan-300 font-bold">20-40 MB</p>
+</div>
+<!-- Era 3: 2000s -->
+<div class="device-card p-4 flex flex-col items-center text-center">
+<div class="mb-2 text-cyan-300 text-4xl">
+<i class="fas fa-hdd"></i>
+</div>
+<h3 class="subtitle mb-1">Lata 2000.</h3>
+<p class="content">Dyski twarde</p>
+<p class="text-cyan-300 font-bold">10-100 GB</p>
+</div>
+<!-- Era 4: 2010s -->
+<div class="device-card p-4 flex flex-col items-center text-center">
+<div class="mb-2 text-cyan-300 text-4xl">
+<i class="fas fa-microchip"></i>
+</div>
+<h3 class="subtitle mb-1">Lata 2010.</h3>
+<p class="content">Współczesne dyski</p>
+<p class="text-cyan-300 font-bold">TB+</p>
+</div>
+</div>
+<!-- Visual Comparison -->
+<div class="flex mb-4">
+<!-- Left side: Image -->
+<div class="w-1/3 flex items-center justify-center">
+<div class="relative">
+<img alt="Dyskietka i karty pamięci" class="w-64 rounded-lg opacity-90" src="https://picture-search.skywork.ai/aippt/image/sheet/31f97ad0d588cc787072a6c215dffe62_crop.jpg" data-sk-source-container="img" data-sk-source-url="https://sprzedajemy.pl/dyskietka-3-5-cala-1-44-mb-krakow-4-0010c9-nr57289050" data-sk-source-id="1969853040651051012"/>
+<div class="absolute top-0 left-0 bg-cyan-500 bg-opacity-20 rounded-lg p-2">
+<p class="text-xs text-cyan-300">1980s</p>
+</div>
+<div class="absolute bottom-0 right-0 bg-orange-500 bg-opacity-20 rounded-lg p-2">
+<p class="text-xs text-orange-300">2020s</p>
+</div>
+</div>
+</div>
+<!-- Right side: Chart -->
+<div class="w-2/3">
+<div class="chart-container" id="storage-growth-chart"></div>
+</div>
+</div>
+<!-- Bottom Section -->
+<div class="content">
+<p>Wzrost pojemności pamięci masowej napędzał rozwój wielu aplikacji, od prostych gier do zaawansowanych systemów sztucznej inteligencji i uczenia maszynowego, które wymagają przechowywania i przetwarzania coraz większych ilości danych.</p>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-4 flex justify-between items-center">
+<div class="footer">Ewolucja Systemów Komputerowych</div>
+<div class="footer" style="visibility: hidden;">9/12</div>
+</div>
+</div>
+<script>
+        // Simple D3.js visualization based on data from the document
+        document.addEventListener('DOMContentLoaded', function() {
+            // Data based on the document
+            const data = [
+                {year: "1980", capacity: 1.44, unit: "MB"},
+                {year: "1990", capacity: 40, unit: "MB"},
+                {year: "2000", capacity: 100, unit: "GB"},
+                {year: "2010", capacity: 1000, unit: "GB"},
+                {year: "2020", capacity: 10000, unit: "GB"}
+            ];
+            
+            // Set up dimensions
+            const margin = {top: 20, right: 30, bottom: 40, left: 60};
+            const width = document.getElementById('storage-growth-chart').clientWidth - margin.left - margin.right;
+            const height = document.getElementById('storage-growth-chart').clientHeight - margin.top - margin.bottom;
+            
+            // Create SVG
+            const svg = d3.select("#storage-growth-chart")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+                
+            // Create scales
+            const x = d3.scaleBand()
+                .domain(data.map(d => d.year))
+                .range([0, width])
+                .padding(0.3);
+                
+            const y = d3.scaleLog()
+                .domain([1, 10000])
+                .range([height, 0]);
+                
+            // Add X axis
+            svg.append("g")
+                .attr("transform", `translate(0,${height})`)
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .style("fill", "white");
+                
+            // Add Y axis
+            svg.append("g")
+                .call(d3.axisLeft(y)
+                    .tickValues([1, 10, 100, 1000, 10000])
+                    .tickFormat(d => d === 10000 ? "10 TB" : d === 1000 ? "1 TB" : d === 100 ? "100 GB" : d === 10 ? "10 GB" : "1 GB"))
+                .selectAll("text")
+                .style("fill", "white");
+                
+            // Add bars
+            svg.selectAll("rect")
+                .data(data)
+                .join("rect")
+                .attr("x", d => x(d.year))
+                .attr("y", d => y(d.capacity))
+                .attr("width", x.bandwidth())
+                .attr("height", d => height - y(d.capacity))
+                .attr("fill", "#00FFFF")
+                .attr("rx", 4)
+                .attr("ry", 4);
+                
+            // Add title
+            svg.append("text")
+                .attr("x", width / 2)
+                .attr("y", 0)
+                .attr("text-anchor", "middle")
+                .style("font-size", "16px")
+                .style("fill", "white")
+                .text("Wzrost pojemności pamięci masowej (logarytmiczna skala)");
+        });
+    </script>
+
+</body></html>

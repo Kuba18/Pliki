@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Przedrostki Dziesiętne i Binarne w Informatyce</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script><style>
+        body {width: 1280px; min-height: 863px; overflow: hidden; margin: 0;
+            padding: 0;}
+        .slide {
+            width: 1280px;
+            min-height: 863px;
+            background-color: #1C2331;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00FFFF;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .table-header {
+            background-color: rgba(0, 255, 255, 0.2);
+            font-weight: bold;
+        }
+        .table-row-even {
+            background-color: rgba(0, 255, 255, 0.05);
+        }
+        .table-row-odd {
+            background-color: rgba(0, 255, 255, 0.1);
+        }
+        .footer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .highlight {
+            color: #32CD32;
+            font-weight: bold;
+        }
+        .warning {
+            color: #FFA500;
+            font-weight: bold;
+        }
+    
+html {
+    overflow: hidden;
+}</style>
+</head>
+<body>
+<div class="slide p-10 flex flex-col" style=" overflow: hidden;">
+<!-- Title Section -->
+<div class="mb-6">
+<h1 class="title">Przedrostki Dziesiętne i Binarne w Informatyce</h1>
+</div>
+<!-- Introduction -->
+<div class="content mb-6">
+<p>W miarę jak ilość przechowywanych danych rosła, pojawiła się potrzeba używania większych jednostek miary. W informatyce stosuje się zarówno przedrostki dziesiętne (oparte na potęgach 10), jak i binarne (oparte na potęgach 2). Różnica między nimi często prowadzi do nieporozumień, zwłaszcza przy określaniu pojemności pamięci masowej.</p>
+</div>
+<!-- Comparison Table -->
+<div class="mb-6">
+<table class="w-full border-collapse">
+<thead>
+<tr class="table-header">
+<th class="p-3 border border-cyan-800">Przedrostek Dziesiętny (SI)</th>
+<th class="p-3 border border-cyan-800">Wartość (Bajtów)</th>
+<th class="p-3 border border-cyan-800">Przedrostek Binarny (IEC)</th>
+<th class="p-3 border border-cyan-800">Wartość (Bajtów)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row-odd">
+<td class="p-3 border border-cyan-800">Kilobajt (KB)</td>
+<td class="p-3 border border-cyan-800">10<sup>3</sup> = 1000</td>
+<td class="p-3 border border-cyan-800">Kibibajt (KiB)</td>
+<td class="p-3 border border-cyan-800">2<sup>10</sup> = 1024</td>
+</tr>
+<tr class="table-row-even">
+<td class="p-3 border border-cyan-800">Megabajt (MB)</td>
+<td class="p-3 border border-cyan-800">10<sup>6</sup> = 1000000</td>
+<td class="p-3 border border-cyan-800">Mebibajt (MiB)</td>
+<td class="p-3 border border-cyan-800">2<sup>20</sup> = 1048576</td>
+</tr>
+<tr class="table-row-odd">
+<td class="p-3 border border-cyan-800">Gigabajt (GB)</td>
+<td class="p-3 border border-cyan-800">10<sup>9</sup> = 1000000000</td>
+<td class="p-3 border border-cyan-800">Gibibajt (GiB)</td>
+<td class="p-3 border border-cyan-800">2<sup>30</sup> = 1073741824</td>
+</tr>
+<tr class="table-row-even">
+<td class="p-3 border border-cyan-800">Terabajt (TB)</td>
+<td class="p-3 border border-cyan-800">10<sup>12</sup> = 1000000000000</td>
+<td class="p-3 border border-cyan-800">Tebibajt (TiB)</td>
+<td class="p-3 border border-cyan-800">2<sup>40</sup> = 1099511627776</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Explanation -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-opacity-20 bg-cyan-900 p-4 rounded-lg">
+<h3 class="subtitle mb-2 text-cyan-300"><i class="fas fa-industry mr-2"></i>Producenci Dysków</h3>
+<p class="content">Producenci dysków twardych i innych nośników danych zazwyczaj stosują <span class="highlight">przedrostki dziesiętne</span> (KB, MB, GB, TB), ponieważ są one powszechnie używane w systemie metrycznym i oznaczają potęgi liczby 10.</p>
+</div>
+<div class="bg-opacity-20 bg-cyan-900 p-4 rounded-lg">
+<h3 class="subtitle mb-2 text-cyan-300"><i class="fas fa-laptop-code mr-2"></i>Systemy Operacyjne</h3>
+<p class="content">Systemy operacyjne i oprogramowanie często używają <span class="warning">przedrostków binarnych</span> (KiB, MiB, GiB, TiB), ponieważ komputery operują na systemie binarnym. IEC wprowadziła te standardowe przedrostki binarne, aby uniknąć dwuznaczności.</p>
+</div>
+</div>
+<div class="content mt-4">
+<p class="text-center"><i class="fas fa-exclamation-triangle text-yellow-400 mr-2"></i><span class="warning">Przykład:</span> Dysk o pojemności &#34;1 TB&#34; według producenta (1 000 000 000 000 bajtów) będzie wyświetlany przez system operacyjny jako około 0.909 TiB (909 GiB).</p>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-4 flex justify-between items-center">
+<div class="footer">Ewolucja Systemów Komputerowych</div>
+<div class="footer" style="visibility: hidden;">10/12</div>
+</div>
+</div>
+
+</body></html>
